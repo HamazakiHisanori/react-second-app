@@ -3,14 +3,15 @@ import { Box, Stack, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 
 type Props = {
+  id: number;
   image: string;
   nickName: string;
   fullName: string;
-  onClick: () => void;
+  onClick: (id: number) => void;
 };
 
 export const UserCard: VFC<Props> = memo((props) => {
-  const { image, nickName, fullName, onClick } = props;
+  const { id, image, nickName, fullName, onClick } = props;
   return (
     <Box
       w="260px"
@@ -23,7 +24,7 @@ export const UserCard: VFC<Props> = memo((props) => {
         cursor: "pointer",
         opacity: 0.7,
       }}
-      onClick={onClick}
+      onClick={() => onClick(id)}
     >
       <Stack textAlign="center">
         <Image
