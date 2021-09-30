@@ -1,4 +1,4 @@
-import { memo, ReactNode, VFC } from "react";
+import { memo, VFC } from "react";
 import { Box, Stack, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/image";
 
@@ -6,10 +6,11 @@ type Props = {
   image: string;
   nickName: string;
   fullName: string;
+  onClick: () => void;
 };
 
 export const UserCard: VFC<Props> = memo((props) => {
-  const { image, nickName, fullName } = props;
+  const { image, nickName, fullName, onClick } = props;
   return (
     <Box
       w="260px"
@@ -22,6 +23,7 @@ export const UserCard: VFC<Props> = memo((props) => {
         cursor: "pointer",
         opacity: 0.7,
       }}
+      onClick={onClick}
     >
       <Stack textAlign="center">
         <Image
