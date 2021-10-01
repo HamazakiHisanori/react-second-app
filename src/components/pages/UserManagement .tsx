@@ -8,11 +8,14 @@ import { UserCard } from "../organisms/user/UserCard";
 import { useAllUsers } from "../../hooks/useAllUsers";
 import { UserModal } from "../organisms/user/UserModal";
 import { useSelectUser } from "../../hooks/useSelectUser";
+import { useLoginUser } from "../../hooks/useLoginUser";
 
 export const UserManagement: VFC = memo(() => {
   const { getUsers, loading, users } = useAllUsers();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectUser, selectUser } = useSelectUser();
+  const { loginUser } = useLoginUser();
+  console.log(loginUser);
 
   const onClickUser = useCallback(
     (id: number) => {
