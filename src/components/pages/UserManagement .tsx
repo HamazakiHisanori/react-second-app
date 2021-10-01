@@ -15,7 +15,6 @@ export const UserManagement: VFC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectUser, selectUser } = useSelectUser();
   const { loginUser } = useLoginUser();
-  console.log(loginUser);
 
   const onClickUser = useCallback(
     (id: number) => {
@@ -50,7 +49,12 @@ export const UserManagement: VFC = memo(() => {
           ))}
         </Wrap>
       )}
-      <UserModal isOpen={isOpen} onClose={onClose} user={selectUser} />
+      <UserModal
+        isOpen={isOpen}
+        onClose={onClose}
+        user={selectUser}
+        isAdmin={loginUser?.isAdmin}
+      />
     </>
   );
 });
